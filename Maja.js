@@ -138,4 +138,17 @@ const arrayEqual = (a, b) => {
     }
 }
 
+const sort = (arr) => {
+    for(let i = arr.length; i > 0; i--) {
+        for(let j = 0; j < i; j++) {
+            let a = arr[j]
+            if(a > arr[i - 1]){
+                arr[j] = arr[i - 1]
+                arr[i - 1] = a
+            }
+        }
+    }
+    return arr
+}
+
 
