@@ -1,6 +1,6 @@
 const log = console.log.bind(console)
 
-const ensure = function(condition, message) {
+const ensure = function (condition, message) {
     // 在条件不成立的时候, 输出 message
     if (!condition) {
         log('*** 测试失败', message)
@@ -9,7 +9,7 @@ const ensure = function(condition, message) {
     }
 }
 
-const e = function(selector) {
+const e = function (selector) {
     let element = document.querySelector(selector)
     if (element === null) {
         let s = `selector ${selector} not found`
@@ -22,7 +22,7 @@ const e = function(selector) {
 }
 
 // es 返回一个数组，包含所有被选中的元素
-const es = function(selector) {
+const es = function (selector) {
     let elements = document.querySelectorAll(selector)
     if (elements.length === 0) {
         let s = `selector ${selector} not found`
@@ -34,23 +34,23 @@ const es = function(selector) {
     }
 }
 
-const appendHtml = function(element, html) {
+const appendHtml = function (element, html) {
     element.insertAdjacentHTML('beforeend', html)
 }
 
-const bindEvent = function(element, eventName, callback) {
+const bindEvent = function (element, eventName, callback) {
     element.addEventListener(eventName, callback)
 }
 
 // bindAll 给所有的元素绑定事件
-const bindAll = function(elements, eventName, callback) {
+const bindAll = function (elements, eventName, callback) {
     for (let i = 0; i < elements.length; i++) {
         let tag = elements[i]
         tag.addEventListener(eventName, callback)
     }
 }
 
-const removeClassAll = function(className) {
+const removeClassAll = function (className) {
     let selector = '.' + className
     let elements = es(selector)
     for (let i = 0; i < elements.length; i++) {
@@ -61,7 +61,7 @@ const removeClassAll = function(className) {
 }
 
 // find 函数可以查找 element 的所有子元素
-const find = function(element, selector) {
+const find = function (element, selector) {
     let e = element.querySelector(selector)
     if (e === null) {
         let s = `selector ${selector} not found`
@@ -73,7 +73,7 @@ const find = function(element, selector) {
 }
 
 //查找某一元素的父元素
-const closestClass = function(element, className) {
+const closestClass = function (element, className) {
     let e = element
     while (e !== null) {
         if (e.classList.contains(className)) {
@@ -86,7 +86,7 @@ const closestClass = function(element, className) {
     return null
 }
 
-const closestId = function(element, idName) {
+const closestId = function (element, idName) {
     let e = element
     while (e !== null) {
         if (e.id === idName) {
@@ -98,7 +98,7 @@ const closestId = function(element, idName) {
     return null
 }
 
-const closestTag = function(element, tagName) {
+const closestTag = function (element, tagName) {
     let e = element
     while (e !== null) {
         if (e.tagName.toUpperCase() === tagName.toUpperCase()) {
@@ -110,7 +110,7 @@ const closestTag = function(element, tagName) {
     return null
 }
 
-const closest = function(element, selector) {
+const closest = function (element, selector) {
     let firstChar = selector[0]
     if (firstChar === '.') {
         let className = selector.slice(1)
@@ -126,11 +126,11 @@ const closest = function(element, selector) {
 
 //判断两个数组是否相等
 const arrayEqual = (a, b) => {
-    if(a.length !== b.length) {
+    if (a.length !== b.length) {
         return false
     } else {
-        for(let i = 0; i < a.length; i++) {
-            if(a[i] !== b[i]){
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) {
                 return false
             }
         }
@@ -139,10 +139,10 @@ const arrayEqual = (a, b) => {
 }
 
 const sort = (arr) => {
-    for(let i = arr.length; i > 0; i--) {
-        for(let j = 0; j < i; j++) {
+    for (let i = arr.length; i > 0; i--) {
+        for (let j = 0; j < i; j++) {
             let a = arr[j]
-            if(a > arr[i - 1]){
+            if (a > arr[i - 1]) {
                 arr[j] = arr[i - 1]
                 arr[i - 1] = a
             }
@@ -151,4 +151,9 @@ const sort = (arr) => {
     return arr
 }
 
+function main() {
+    console.log('执行代码的入口')
+}
+
+main()
 
